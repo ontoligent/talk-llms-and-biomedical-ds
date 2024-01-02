@@ -1,40 +1,104 @@
 # Notes
 
-## Caveats
+## Abstract
 
-- Preliminary
-- Meta / synthetic
-- Sociolinguistics
-- Anticipate effects on medical practice 
+All branches of scientific knowledge are dually constituted as formally ordered bodies of knowledge and informally shared understandings of how things are done. Both forms are highly mediated through language and discourse, through the development of formal ontologies and vocabularies used to organize information and through informal modes of speech that characterize communication between members of a knowledge community. The deployment of Large Language Models (LLMs) in the context of biomedicine impacts both of these forms of language and knowledge as well as their relationship to each other. This talk will provide a framework for making sense of the changes that LLMs are having and are likely to have on biomedical knowledge, with special reference to biomedical data science education.
 
-## Major Topics
+## Caveat
 
-- Problem: How will LLMs transform biomedicine?
-- Approach: LLMs as discourse models, knowledge; they are not other minds, any more than the settlement patterns studied by archaeologists are
-- Theory
-	- Thick mediation, communication, social AI
-	- Computational sublimation, reproduction of knowledge
-	- Study of discourse, discourse genres, codes
-- Application
-	- Discourse in the biomedical setting
-	- LLMs in biomedicine -- sources, models, use cases
-	- Effects
+-   A prolegomonen to the use of LLMs as sources of knowledge.
+-   Preliminary, Meta / synthetic ...
+
+## Outline
+
+-   The Question before us is: **How will LLMs affect biomedical data science education?**
+    -   The mantra, "AI in the Loop: Humans in Charge," is inadequate. We want to know what the loop is and how it will be changed by the introduction of a new node. See [Stanford's HAI conference on this topic](https://hai.stanford.edu/events/2022-hai-fall-conference-ai-loop-humans-charge).
+    -   'We want to know how LLMs will affect the production, distribution, and consumption of knowledge?
+-   Background: What is an LLM?
+-   Approach: **LLMs are discourse models**
+    -   Rationalization effect: what is the relationship between language and knowledge?
+        -   It's a question we have avoided since the invention of libraries.
+    -   What is knowledge?
+        -   CONSIDER BEGINNING WITH FEYNMAN
+
+        -   It comes in two broad forms (Kant):
+
+            -   [Analytic]{.underline}: Names and logical relations (logic)
+            -   [Synthetic]{.underline}: Words and things ... Arrived at through experience and experimentation (but not purely; see *a priori* vs *a posteriori* synthetic statements)*.*
+            -   Combinations: abstractions such as mass
+
+        -   Point: knowledge requires situated interaction with the world (along with a mental model of the world).
+
+            -   We call knowledge without this "book knowledge."
+
+        -   This is similar to Richard Feynman's distinction between "knowing the name of something and knowing something," between knowing and understanding. See [this blog post](https://coffeeandjunk.com/knowing-something/).
+
+            > You can know the name of a bird in all languages of the world, but when you're finished, you'll know absolutely nothing whatever about the bird. So let's look at the bird and what it's doing – that's what counts. I learned very early the difference between knowing the name of something and knowing something."
+
+        -   Or, between knowledge and understanding – understanding involves assignment of certainty.
+
+        -   Knowledge requires the referential function of language.
+    -   What about LLMs?
+        -   They lack this capacity — by design.
+        -   This is because they are built on Zellig Harris' distributional hypothesis, which is an anti-referential theory of language.
+        -   The word embeddings from which LLMs are built and further generate are operationalizations of this hypothesis.
+            -   LLMs built from training data that are converted into embeddings and then fed to a transformer that applies an attention mechanism to generate more salient embeddings.
+    -   More on Knowledge and Truth
+        -   Knowledge K as Justified True Belief
+        -   Truth T as correspondence, coherence, and pragmatist theories
+        -   Model M and the separability of data and model
+        -   Language – *langue* and *parole,* grammar and discourse
+    -   LLMs are not language models per se – not models, since they violate the criterion of model separation; not grammars, since they have too many parameters. They are generative concordances. They are better thought of as discourse models. Discourse has always been messy for linguists.
+    -   Evidence
+        -   This explains their ability to shine at reproducing the forms of discourse, but often fail at producing truthful or logical outputs.
+            -   They are truthful or logical to the extent that they are represent truthful and logical discourse in their training data.
+        -   Perform very well within the bounds of the training data; they do not generalize [@yadlowsky]:
+            -   "... \[LLMs\] have the remarkable ability to perform in-context learning (ICL) ... However when presented with tasks or functions which are out-of-domain of their pretraining data, we demonstrate various failure modes of transformers and degradation of their generalization for even simple extrapolation tasks. Together our results highlight **that the impressive ICL abilities of high-capacity sequence models may be more closely tied to the coverage of their pretraining data mixtures than inductive biases that create fundamental generalization capabilities**.
+            -   ICL and the reproduction and hyper-coherence of the given ... May lead to the ossification of knowledge, i.e. scholasticism.
+        -   They are not other minds, any more than the settlement patterns studied by archaeologists are.
+-   Theory
+    -   Viewing LLMs as discourse models allows us to represent their role in the "loop" more effectively.
+    -   LLMs are agents that mediate communication.
+    -   Thick mediation, communication, social AI
+    -   Effects of media on social and psychological structures
+    -   Study of discourse, discourse genres, codes
+-   Application
+    -   Discourse in the biomedical setting
+        -   Two kinds of knowledge transmission
+            -   Formal
+            -   Informal
+    -   LLMs in biomedicine roughly follow these paths
+        -   Type 1
+            -   Data sources: PubMed abstracts and essays, the Pile
+            -   Models: Meditron, BioBERT, PubMedBERT, PubMedGPT
+            -   Use cases (tasks): MQA, MRE, NER
+        -   Type 2
+            -   Data Sources: Clinical notes, records from diagnoses, medications, hospital procedures, general practice (GP) tests, BP measurements (both systolic and diastolic pressure), drinking status, smoking status, and BMI.
+                -   Discuss EMR and EHR
+            -   Models: GatorTron, Hi-BEHRT, MedNLI
+            -   Use cases: summarization, doctor patient communication, etc., inference
+    -   Most effort is focused on Type 1 but Type 2 is likely to have more of an impact since it is at point of delivery and where the reception of DS and AI in biomedicine has been resistant.
+        -   "It is not clear how large clinical language models with billions of parameters can help medical AI systems utilize unstructured electronic health records (EHRs) within the current legal and ethical framework while ensuring privacy of patient information and accuracy of the information provided" [@pahune2023a: 19].
+-   Effects
+    -   Computational sublimation, reproduction of knowledge, databasing of knowledge
+    -   ICL and hypercoherence
+    -   Practices change in order to accommodate measurement requirements of data products, e.g. with Hi-BEHRT and frequency requirements of other EHR modalities.d
 
 ## Dimensions
 
 Studies of large language models in the context of medicine usually focus on one of three dimensions:
 
-- Data used to fine-tune language models
-- Language models themselves, along with performance measures at various generic tasks
-- Use cases for language models
+-   Data used to fine-tune language models
+-   Language models themselves, along with performance measures at various generic tasks
+-   Use cases for language models
 
 The first and third can be broken down into discourse genres and communicative situations. For example patient records, or medical research literature as data input, and improving medical research or summarizing doctor's notes, or generating messages to patients as data output.
 
 ## Examples and Exhibits
 
-### Prompt engineering as exemplary of planning vs situated action. 
+**Prompt engineering as exemplary of planning vs situated action.**
 
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10585440/ 
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10585440/
 
 This paper summarizes the current state of research about prompt engineering and, at the same time, aims at providing practical recommendations for the wide range of health care professionals to improve their interactions with LLMs.
 
@@ -42,289 +106,233 @@ Compare data sources for each of the emerging language models
 
 How are models used? See use cases. How much planning?
 
-Convert patient conversations 
-https://techcrunch.com/2023/03/14/nabla-a-french-digital-health-startup-launches-copilot-using-gpt-3-to-turn-patient-conversations-into-actionable-items/ 
+Convert patient conversations https://techcrunch.com/2023/03/14/nabla-a-french-digital-health-startup-launches-copilot-using-gpt-3-to-turn-patient-conversations-into-actionable-items/
 
-Diagnosis
-https://www.statnews.com/2023/02/13/chatgpt-assisted-diagnosis/ 
+Diagnosis https://www.statnews.com/2023/02/13/chatgpt-assisted-diagnosis/
 
-Automating repetitive functions
-https://www.thelancet.com/journals/landig/article/PIIS2589-7500(23)00021-3/fulltext 
-this Lancet piece on the future of discharge summaries.
+Automating repetitive functions https://www.thelancet.com/journals/landig/article/PIIS2589-7500(23)00021-3/fulltext this Lancet piece on the future of discharge summaries.
 
-Scientific research
-https://www.mdpi.com/2227-9032/11/6/887 
+Scientific research https://www.mdpi.com/2227-9032/11/6/887
 
-Generate health awareness messages
-https://www.frontiersin.org/articles/10.3389/fcomm.2023.1129082 
+Generate health awareness messages https://www.frontiersin.org/articles/10.3389/fcomm.2023.1129082
 
-Info retrieval and decision support
-https://provectus.com/blog/comparison-large-language-models-biomedical-domain/ 
+Info retrieval and decision support https://provectus.com/blog/comparison-large-language-models-biomedical-domain/
 
-## Models 
+## Tasks
 
-| Model | Data | Uses |
-|--------|-------|------|
-| Meditron | Research publications | |
+Broad categories seem to be: retrieval, generation, synthesis
 
-Gatortron
-Clinical text
+-   BIR: Biomedical information retrieval (seems general)
 
-MultiMedQA
+    -   MTS: Medical text summarization (aka Biomedical Text Summarization), e.g. literature summarization, radiology report summarization, and clinical note summarization
 
+-   STS: Semantic Text Similarity; determine the extent to which two sentences are similar in terms of semantic meaning.
 
-BioBERT
+-   Information extraction
 
+    -   NER: Named Entity Recognition for clinical concept extraction
 
-PubMedBERT
+    -   MRE: medical relation extraction, e.g chemical interaction, drug interaction, and gene-disease association; essentially a sequence classification task, classifying a set of sentences into a category.
 
+-   NLI: natural language inference; determine whether a conclusion can be inferred from a given sentence
 
-BioMegatron
+-   MQA: medical question answering; a complex clinical NLP task that requires understanding information from the entire document.
 
+-   MMG: medical message generation
 
-ClinicalBERT
+-   Medical reasoning (NLI?)
 
+-   Medical conversations
 
-BLOOM
+-   PICO Evidence-Based Medical Information Extraction
 
-message generation
+-   DC Document Classification
 
+-   TGT: Text generation tasks (this is a broad category)
 
-Meditron
-https://github.com/epfLLM/meditron 
+-   Risk Prediction (See EHR and Hi-BEHRT)
 
-... adapted to the medical domain from Llama-2 through continued pretraining on a comprehensively curated medical corpus, including selected PubMed papers and abstracts, a new dataset of internationally-recognized medical guidelines, and a general domain corpus.
+## Document Types
 
-K -- Dr
+-   General
+    -   Wiikipedia
+    -   The Pile
+    -   RealNews
+-   Domain specific
+    -   Research papers and abstracts
+    -   Clinical notes
+    -   EHR Electronic health records. "represent a holistic overview of patients’ trajectories"
+        -   Records from diagnoses, medications, hospital procedures, general practice (GP) tests, BP measurements (both systolic and diastolic pressure), drinking status, smoking status, and BMI
 
-Gatortron
-https://www.nature.com/articles/s41746-023-00958-w 
+## Models
 
-This study develops a generative clinical LLM, GatorTronGPT, using 277 billion words of text including (1) 82 billion words of clinical text from 126 clinical departments and approximately 2 million patients at the University of Florida Health and (2) 195 billion words of diverse general English text
+See [@pahune2023] for a comprehensive list of models, datasets, and tasks.
 
-See https://medinform.jmir.org/2020/3/e17984/ on clinical text in machine learning 
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Model             | Data / Source                                                                                                                                                                                               | Uses                                                                  |                                                                                                                                            |
++===================+=============================================================================================================================================================================================================+=======================================================================+============================================================================================================================================+
+| Meditron          | Abstracts and papers\                                                                                                                                                                                       |                                                                       | [@salathé2023]                                                                                                                             |
+|                   | Clinical guidelines                                                                                                                                                                                         |                                                                       |                                                                                                                                            |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Gatortron         | Clinical notes (from UFH), Wikipedia, and PubMed                                                                                                                                                            | NER, MRE, STS, NLI, MQA                                               | [@yang2022]                                                                                                                                |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| BioBERT           | Citations, abstracts, articles from PubMed and PMC.                                                                                                                                                         | NER, MRE, MQA, etc.                                                   | [Repo](https://github.com/dmis-lab/biobert) [Article](https://towardsdatascience.com/tagging-genes-and-proteins-with-biobert-c7b04fc6eb4f) |
+|                   |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
+|                   |                                                                                                                                                                                                             |                                                                       | <https://github.com/naver/biobert-pretrained>                                                                                              |
+|                   |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
+|                   |                                                                                                                                                                                                             |                                                                       | [@lee2020]                                                                                                                                 |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| PubMedBERT        | Pretrained language models from scratch; PubMed abstracts and full text (PMC)                                                                                                                               | NER, PICO, MRE, STS, DC, MQA                                          | [@gu2022]                                                                                                                                  |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| PubMedGPT         | Biomedical abstracts and papers; [the Pile](https://pile.eleuther.ai/)                                                                                                                                      | MQA                                                                   | [HAI Paper](https://hai.stanford.edu/news/stanford-crfm-introduces-pubmedgpt-27b)                                                          |
+|                   |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
+|                   |                                                                                                                                                                                                             |                                                                       | [@bolton2022]                                                                                                                              |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| BioMegatron       | Wikipedia, CC-Stories, RealNews, and OpenWebtext + PubMed abstracts, PMC full-text corpus                                                                                                                   | NER, MRE, MQA                                                         | [@shin]                                                                                                                                    |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| ClinicalBERT      |                                                                                                                                                                                                             |                                                                       | [@alsentzer]                                                                                                                               |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| BioBERT           | PubMed, PMC                                                                                                                                                                                                 | NER, MRE, MQA                                                         | [@lee2020a]                                                                                                                                |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| BLOOM             | GPT-3                                                                                                                                                                                                       | MMG                                                                   | [@lim2023]                                                                                                                                 |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| BioGPT            |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Flan-PaLM,\       | A large language model from Google Research, designed for the medical domain; trained on medical exams, medical research, and consumer queries                                                              | MQA                                                                   | [@singhal2023]\                                                                                                                            |
+| Med-PaLM,\        |                                                                                                                                                                                                             |                                                                       | <https://sites.research.google/med-palm/>                                                                                                  |
+| MedLM             |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Clinical Camel    |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Medprompt (GPT-4) | GPT4 + "based on a composition of several prompting strategies"                                                                                                                                             | MQA                                                                   | [@nori]                                                                                                                                    |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Palmyra-Med       | "a custom-curated medical dataset of 200,000 examples"                                                                                                                                                      | MQA                                                                   | <https://dev.writer.com/docs/palmyra-med-instruction-based-fine-tuning-of-llms-enhancing-medical-domain-performance>                       |
+|                   |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
+|                   | The Pile, RefinedWeb                                                                                                                                                                                        |                                                                       |                                                                                                                                            |
+|                   |                                                                                                                                                                                                             |                                                                       |                                                                                                                                            |
+|                   | PubMedQA and MedQA for fine tuning                                                                                                                                                                          |                                                                       |                                                                                                                                            |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| AntGLM-Med        |                                                                                                                                                                                                             | MQA, multiple choice answer, medical reasoning, medical conversations | [@li]                                                                                                                                      |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Hi-BEHRT          | EHR; "We included records from diagnoses, medications, hospital procedures, general practice (GP) tests, BP measurements (both systolic and diastolic pressure), drinking status, smoking status, and BMI." |                                                                       | [@li2023]                                                                                                                                  |
++-------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
 
-The vast majority of studies focused on a single type of clinical narratives, which ranged from imaging reports to hospital discharge summaries. 
+## Benchmark Datasets
 
-Table 2. Datasets used in clinical natural language processing community challenges.
-Dataset	Provenance	Documents	Size	Annotations	Studies
-- 2010 i2b2/VA [123]	
-	- PHCb, BIDMCc, UPMCd	
-	- Discharge summaries, progress reports	
-	- 871	
-	- Medical problems, treatments, tests, and relations among them	
-	- [20,49,64,67,96,104]
-- 2011 i2b2/VA [124]	
-	- PHC, BIDMC, UPMC, Mayoe	
-	- Discharge summaries, progress reports, radiology reports, pathology reports, other reports	
-	- 978+164	
-	- Coreference chains for the problem, person, test, result, treatment, anatomical site, disease or syndrome, sign or symptom, etc	
-	- [63]
-- 2012 i2b2 [125]	
-	- PHC, BIDMC	
-	- Discharge summaries	
-	- 310	
-	- Clinical events, temporal expressions, temporal relations	
-	- [64]
-- 2013 ShARe/CLEF eHealth [126]	
-	- BIDMC	
-	- Discharge summaries, electrocardiogram reports, echocardiogram reports, radiology reports	
-	- 300	
-	- Disorders, acronyms, and abbreviations	
-	- [54,57,88,98,114]
-- 2014 i2b2/UTHealth [127,128]	
-	- PHC	
-	- Longitudinal medical records	
-	- 1304	
-	- Protected health information; risk factors for heart disease	
-	- [18,21,26,52,62,64,80,82,91,107,108]
-- 2015 SemEval/THYME [129]	
-	- Mayo	
-	- Clinical notes, pathology reports	
-	- 600	
-	- Times, events, and temporal relations among them	
-	- [60]
-- 2016 CEGS N-GRID [130,131]	
-	- PHC	
-	- Psychiatric intake records	
-	- 1000	
-	- Protected health information; symptom severity	
-	- [23,27,42,53,58,65,78,83,92]
+See <https://dl.acm.org/doi/10.1145/3458754> for more.
 
-See "A Sociolinguistic Analysis of Doctor-Patient Communication." M. Simmons. Published 31 January 1998
-https://www.diigo.com/0uuj8a 
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------------------------------+
+| MultiMedQA | "a benchmark combining six existing medical question answering datasets spanning professional medicine, research and consumer queries and a new dataset of medical questions searched online, HealthSearchQA"                                                                                                                                                                                                                                                 | Clinical knowledge | [@thirunavukarasu2023]             |
+|            |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                    |                                    |
+|            |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                    | [@singhal2023]                     |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------------------------------+
+| MedQA      |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                    | <https://github.com/jind11/MedQA>  |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------------------------------+
+| PubMedQA   |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                    | <https://pubmedqa.github.io/>      |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------------------------------+
+| BioASQ     |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                    | <http://bioasq.org/>               |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------------------------------+
+| BIOSSES    | The Sentence Similarity Estimation System for the Biomedical Domain \[54\] contains 100 pairs of PubMed sentences each of which is annotated by five expert-level annotators with an estimated similarity score in the range from 0 (no relation) to 4 (equivalent meanings). It is a regression task, with the average score as the final annotation. We use the same train/dev/test split in Peng et al. \[45\] and use Pearson correlation for evaluation. |                    |                                    |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------------------------------+
+| MedNLI     | We introduce MedNLI - a dataset annotated by doctors, performing a natural language inference task), grounded in the medical history of patients. We present strategies to: 1) leverage transfer learning using datasets from the open domain, (e.g. SNLI) and 2) incorporate domain knowledge from external data and lexical sources (e.g. medical terminologies). Our results demonstrate performance gains using both strategies.                          |                    | <https://jgc128.github.io/mednli/> |
+|            |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                    |                                    |
+|            |                                                                                                                                                                                                                                                                                                                                                                                                                                                               |                    | <https://github.com/jgc128/mednli> |
++------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------------------------------+
 
-Consider Suchman -- plans vs situated action
+## Images
 
-Medicine as situated action
+### Meditron
 
-LLMs and planning ... Prompt engineering and planning. 
+![MEDITRON’s performance on the medical benchmark MedQA. [Source](https://engineeringprompts.substack.com/p/meditron-70b-a-new-truly-open-ai).](images/paste-1.png){style="border: 1px solid black;"}
 
-Denial of situation.
+![](images/paste-2.png){style="border: 1px solid black;"}
 
-Dr -- Dr
-Pt -- Dr
+[GitHub Repo](https://github.com/epfLLM/meditron)
 
-MultiMedQA
-https://www.nature.com/articles/s41586-023-06291-2
+## LLMs in General
 
-... a benchmark combining six existing medical question answering datasets spanning professional medicine, research and consumer queries and a new dataset of medical questions searched online, HealthSearchQA. We propose a human evaluation framework for model answers along multiple axes including factuality, comprehension, reasoning, possible harm and bias.
+[@zhao] Very good overview of LLM technology. Lots of good images.
 
-Pt -- K 
+[@tian2023a] Very good overview of LLMs in biomedicine.
 
-Slides
-1. Introduction / Objectives
-	1. I want to describe the effect that LLMs may have on the communication and reproduction of knowledge in the context of biomedicine
-		1. Formal education is a special case of knowledge reproduction
-		2. Education is ongoing; lifelong learning + specific cases
-	2. I want to introduce a frame for discovering and making sense of these effects
-2. First, some example Uses
-	1. ChatGPT and Dr-Pt relations
-	2. GatorTron, etc. for information retrial, document summarization
-3. What are LLMs?
-	1. LLMs are primarily language generators
-		1. They are "intelligent" only to the degree that intelligence is consists of coherent sentences
-		2. They possess "knowledge" on to the extent that the sentences they generate are mappable to realia and qualia (things and experiences)
-	2. Proper study is in terms of language
-4. Knowledge (Aside)
-	1. LLMs do not meet basic criterion of Justified True Belief
-		1. Beliefs: Mental representations
-		2. Truth: Correspondance, Coherence, Pragmatic 
-		3. Justification: Experience, Experiment, Reason
-	2. LLMs?
-5. Language
-	1. Grammar vs Discourse
-	2. LLMs do not have a grammar per se
-	3. LLMs model discourse
-6. Communication
-	1. Discourse
-	2. Thick Mediation
-	3. Characterized by discourse Genres
-	4. Formal and Informal Models
-7. Discourse Genres 
-	1. Conditioned by Relationship Types
-8. Relationship Types
-	1. Formal and informal genres for each
-	2. Doctor -- Doctor: Notes, EMR, EHR
-	3. Doctor -- Patient: MyChart messaging
-	4. Patient -- Patient: Reddit
-	5. K -- Doctor: Research reports, secondary and tertiary sources
-	6. K -- Patient: WebMD
-9. Effects of LLMs
+## Notes
 
-Prompt engineering guides are effectively guides for how to speak. 
+"Opportunities and Challenges for ChatGPT and Large Language Models in Biomedicine and Health" [@tian2023]
 
-https://www.linkedin.com/posts/eric-vyacheslav-156273169_game-changer-open-ai-just-released-their-activity-7141454141683343360-eunF
+Very good overview of LLMs in general.
 
-https://platform.openai.com/docs/guides/prompt-engineering 
+> Following an extensive literature survey, we find that significant advances have been made in the field of text generation tasks, surpassing the previous state-of-the-art methods. For other applications, the advances have been modest. Overall, LLMs have not yet revolutionized biomedicine, but recent rapid progress indicates that such methods hold great potential to provide valuable means for accelerating discovery and improving health. We also find that the use of LLMs, like ChatGPT, in the fields of biomedicine and health entails various risks and challenges, including fabricated information in its generated responses, as well as legal and privacy concerns associated with sensitive patient data. We believe this survey can provide a comprehensive and timely overview to biomedical researchers and healthcare practitioners on the opportunities and challenges associated with using ChatGPT and other LLMs for transforming biomedicine and health.
 
-Latest
-- LLMs mediate communication 
-	- Therefore, LLMs structure relationships 
-	- Therefore, LLMs structure language
-	- Therefore, LLMs structure knowledge
-- Thick mediation
-	- Shannon's model = thin mediation
-	- Licklider's model = thick mediation
-- Effects on language
-	- Characterized by discourse genres
-		-  Genres may be defined by their sociocultural and pragmatic characteristics,
-			- sociocultural dimension: the culture where it is embedded
-			- pragmatic dimension: immediate situation where it takes place
-			- textual dimension the structural and linguistic
-		- Genres are "situated" forms of cognition within specific social activities
-	- Genres vary by the differences in the elements of the 4-part model of speech
-		- Event, Locution, Illocution, Perlocution
-		- Implied social relationship embedded in context, situation, environment, etc.
-	- Language characterized by codes
-		- Restricted codes
-- Effects on relationships
-	- Look at relationship types
-- Effects on knowledge
-	- Formal vs informal knowledge transmission
-- Examples
-	- Informal
-		- EMR, EHR, MyChart messaging, visit transcripts
-	- Formal
-		- Research reports (PubMed), protocols
+### Graph
 
-Angles
-- BMDS in terms of model of DS
-	- BM as domain knowledge
-	- Specific pipeline -- Bioinformatics as DESIGN, Biostatistics and ML as ANALYTICS
-- BMDS in terms of history (offer in support of model)
-	- VA Data Sciences Division
-	- AF School of Aerospace Medicine
-	- Glaxo Smith Klein Data Science
-- BMDS in terms of sociology of AI
-	- Thick mediation
-	- Role of LLMs 
-	- Effects on language
-- BDMS as a specific body of knowledge
-- Language and Knowledge
-- Similar to historian's concern
+```{dot}
+digraph G {
 
-Quotes
-- Chesterton on the madman and reason.
-- Lyotard on the condition of knowledge.
-- Douglas:"institutions are machines for thinking."
+    rankdir=BT
+    node [shape=parallelogram]
 
-Talking Points / Outline
-- Preface
-	- Unapologetically high level talk
-	- Purpose is to frame the subject
-- Theoretical Framework
-	- Scientific knowledge is significantly mediated by language
-		- "Knowledge is a text-based application"
-		- Fundamental to human cognition
-		- Fundamental to the transmission of knowledge over space and time
-		- Language functions as both a medium of thought and communication
-	- Communication precedes thought (Durkheim, Douglas)
-		- Captured in concept of discourse
-		- "Institutions do the classification"
-		- Knowledge is largely stored language
-	- Two primary forms of communication in scientific education
-		- Formal knowledge: student, mediated by instructors, the library
-		- Informal knowledge:
-	- The situation of teaching and learning
-		- The concern for plagiarism pales in comparison to the effects of LLMs on the condition of knowledge
-- Thesis
-	- LLMs may be viewed as institutional frameworks
-		- An AI is not a brain; it is a social arrangement
-			- Consistent with Hobbes' view of society
-		- Douglas: Institutions do the classifying
-	- LLMs will shape how knowledge is constituted
-		- What survives
-		- How it will survive
-	- Epistemic imperialism
-	- Formal : informal :: Structure  : Unstructured
-	- Insurance and classification driving healthcare decision-making
-	- What gets recorded 
-- Application to BMDS
-	- What is BMDS
-		- Specific characteristics
-		- Areas
-			- Computational Genomics
-			- Biostatistics
-			- Text mining EHRs
-	- Historical background
-		- VA, AFSAM, GSK, etc.
-	- Current conditioning factors
-		- COVID
-			- Telemedicine
-			- Surveillance and social control
-		- Predictive Analytics
-		- LLMs and Generative AI
-- LLMs and language
-	- Standardization of language
-	- Detachment from reference
-- Anticipated effects
-	- Databasing of knowledge
+    // Events
+    PT [label="Pre-training\n(from scratch)"]
+    FT [label="Fine-tuning\n(transfer)"]
+    RL [label="RLHF with PPO\n(alignment)"]
+    US [label="Usage\nevents"]
 
-References
+    // Agents
+    node[shape=oval]
+    U [label="User"]
 
-Resources
-- 2020 Talk on Telemedicine
-	- 
-- 2019 Talk on AI
-	- https://docs.google.com/presentation/d/1FkhsBaeIQAEB7yC8nZ6op068KRAjv6LIAUvMtSGDjHs/edit?usp=drive_web
+    // Data sources
+    node [shape=folder]
+    D1 [label="General\ncorpus data"]
+    D2 [label="Domain specific\nor augmented\ncorpus data"]
+    HA [label="Human\nannotations"]
+
+    // Models
+    node [shape=circle]
+    M1
+    M2
+    RM [label="Reward\nModel"]
+    LLM 
+  
+
+    // Flowchart
+    PT -> M1 -> FT -> M2 -> RL -> LLM
+    RM -> RL 
+    RL -> RM
+    D1 -> PT
+    D2 -> FT
+    LLM -> US
+    U -> US [label="prompt"]
+    US -> U [label="response"]
+ 
+
+    // Alignments
+    node[style="invis"]
+    edge[style="invis"]
+    1  -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+    {rank=same; 1; PT; D1 }
+    {rank=same; 2; M1; }
+    {rank=same; 3; FT; D2;}
+    {rank=same; 4; M2; }
+    {rank=same; 5; RL; RM; HA }
+    {rank=same; 6; LLM;}
+    {rank=same; 7; US; U; }
+ 
+}
+```
+
+RLHF: Reinforcement Learning with Human Feedback.
+
+PPO: Proximal Policy Optimization (see [HugginFace article](https://www.diigo.com/user/ontoligent/b/652970529?ann_md5=eb6c19129e9ad3eac74916243b3f5491) on its role and [this](https://huggingface.co/blog/deep-rl-ppo) for more detail). "The idea with Proximal Policy Optimization (PPO) is that we want to improve the training stability of the policy by limiting the change you make to the policy at each training epoch: we want to avoid having too large policy updates." [Source](https://diigo.com/0uwkrh).
+
+![](images/paste-3.png)
+
+------------------------------------------------------------------------
+
+"ChatGPT Utility in Healthcare Education,Research, and Practice: Systematic Review on the Promising Perspectivesand Valid Concerns" [@sallam2023]
+
+Review of literature related to the application of ChatGPT to medicine. Provides a comprehensive classified list of papers in table form.
+
+> Categorization of the benefits/applications of ChatGPT was as follows: (1) educational benefits in health care education (e.g., generation of realistic and variable clinical vignettes, customized clinical cases with immediate feedback based on the student’s needs, enhanced communications skills); (2) benefits in academic/scientific writing (e.g., text generation, summarization, translation, and literature review in scientific research); (3) benefits in scientific research (e.g., efficient analysis of large datasets, drug discovery, identification of potential drug targets, generation of codes in scientific research); (4) benefits in health care practice (e.g., improvements in personalized medicine, diagnosis, treatment, lifestyle recommendations based on personalized traits, documentation/generation of reports); and (5) being a freely available package.
+>
+> \(4\)
